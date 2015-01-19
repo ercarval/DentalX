@@ -1,0 +1,39 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/WEB-INF/templates/main.xhtml">
+
+	<ui:define name="content">
+		<h:form id="calendar-form">
+			<h:panelGrid columns="3" id="search-grid">
+				<h:column>
+					<p:calendar id="appointment-date"
+						value="#{appointmentController.schedule.date}">
+					</p:calendar>
+					<p:calendar timeOnly="true" id="appointment-time"
+						value="#{appointmentController.schedule.time}" pattern="HH:mm">
+					</p:calendar>
+					<p:commandLink action="#{appointmentController.scheduleSearch}"
+						value="Pesquisar" />
+				</h:column>
+			</h:panelGrid>
+			<p:dataTable var="workingHour"
+				value="#{appointmentController.schedule.workingHours}">
+
+				<p:column headerText="Appointment">
+				Aqui vai para a Consulta			
+			</p:column>
+				<p:column headerText="Hora">
+					<h:outputText value="#{workingHour.date}" >
+						<f:convertDateTime pattern="dd/MMM/yyyy HH:mm" timeZone="GMT-2:00" />
+					</h:outputText>
+				</p:column>
+				<p:column headerText="Cliente">
+					<h:outputText value="#{workingHour.appointment}" />
+				</p:column>
+			</p:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>

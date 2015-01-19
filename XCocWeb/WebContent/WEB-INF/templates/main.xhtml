@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<c:set var="contextPath" value="#{request.contextPath}" />
+
+<h:head>
+	<title><ui:insert name="title">Default title</ui:insert></title>
+	<!-- 
+  <h:outputStylesheet library="css" name="app.css" />
+  <h:outputStylesheet library="css" name="template.css" />
+   -->
+	<link rel="stylesheet" type="text/css"
+		href="#{contextPath}/resources/css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css"
+		href="#{contextPath}/resources/css/template.css" />
+	<link rel="stylesheet" type="text/css"
+		href="#{contextPath}/resources/css/app.css" />
+
+	<script type="text/javascript"
+		src='#{contextPath}/resources/js/bootstrap.min.js'></script>
+</h:head>
+
+<body>
+
+	<div class="container">
+
+
+		<div id="header">
+		
+			
+			<ui:insert name="header">
+
+				<p:menubar id="menuBar">
+					<p:menuitem  ajax="false" url="home.xhtml" value="Home"/>
+					<p:menuitem ajax="false" url="appointment/calendar.xhtml" value="Consulta" />
+					
+				</p:menubar>
+				
+
+			</ui:insert>
+		</div>
+
+
+		<div id="content">
+			<ui:insert name="content">
+    	Content area.  See comments below this line in the source.
+    	<!--  include your content file or uncomment the include below and create content.xhtml in this directory -->
+				<!-- <div> -->
+				<!-- <ui:include src="content.xhtml"/> -->
+				<!-- </div> -->
+			</ui:insert>
+		</div>
+
+		<div id="footer">
+			<ui:insert name="footer">
+    	Footer area.  See comments below this line in the source.
+    	<!--  include your header file or uncomment the include below and create footer.xhtml in this directory -->
+				<!--<ui:include src="footer.xhtml"/>  -->
+			</ui:insert>
+		</div>
+
+
+	</div>
+
+</body>
+
+</html>
